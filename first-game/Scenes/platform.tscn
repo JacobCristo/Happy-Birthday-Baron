@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://4x4n5kps0r2c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bvjk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eowr4"]
+size = Vector2(30, 8)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_bvjk2")
+region_enabled = true
+region_rect = Rect2(17, 0, 31, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eowr4")
+one_way_collision = true
