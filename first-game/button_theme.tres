@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ca24hai02lrix"]
+
+[ext_resource type="FontFile" uid="uid://cxa6focq4crhl" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_pwmkt"]
+
+[resource]
+default_base_scale = 1.0
+default_font = ExtResource("1_pwmkt")
+default_font_size = 90
+Button/colors/font_color = Color(1, 0.319187, 0.171274, 1)
+Button/colors/font_focus_color = Color(1, 0.317647, 0.172549, 1)
+Button/colors/font_hover_color = Color(0.926992, 0.760953, 0, 1)
