@@ -1,8 +1,9 @@
 extends CharacterBody2D
+class_name Player
 
-const RUN_SPEED = 130.0
-const WALK_SPEED = 45.0
-const JUMP_VELOCITY = -400.0
+@export var RUN_SPEED = 130.0
+@export var WALK_SPEED = 45.0
+@export var JUMP_VELOCITY = -400.0
 var air_jumps = 4 
 var has_used_jumps = false
 var current_jumps = 0

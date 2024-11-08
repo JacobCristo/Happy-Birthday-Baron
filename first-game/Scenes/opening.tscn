@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=4 uid="uid://cyjvo26mj5dpa"]
+[gd_scene load_steps=18 format=4 uid="uid://cyjvo26mj5dpa"]
 
-[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_84k5e"]
+[ext_resource type="PackedScene" uid="uid://b5100cy2no07n" path="res://Scenes/game_manager.tscn" id="1_nifxk"]
 [ext_resource type="Texture2D" uid="uid://dq7ewbd8ns3y" path="res://Assets/sprites/HBDB_STATIC_BG - Copy (2).png" id="2_4syk6"]
 [ext_resource type="Texture2D" uid="uid://bh6pt2nrbuan0" path="res://Assets/sprites/PARALLAX_MOON - Copy.png" id="3_u1k6d"]
 [ext_resource type="Texture2D" uid="uid://qmv66rode5y5" path="res://Assets/sprites/PARALLAX_HILLS - Copy.png" id="4_f7yiu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cg2f8dxrgc7hl" path="res://Assets/sprites/HBDB_Environment_Sheet_InProgress-Sheet - Copy (2).png" id="7_fxct1"]
 [ext_resource type="PackedScene" uid="uid://ctfl48arpid3r" path="res://Scenes/player.tscn" id="8_kd5ne"]
 [ext_resource type="FontFile" uid="uid://oe6obn1e7owm" path="res://Assets/fonts/PixelOperator8.ttf" id="9_gdpjg"]
+[ext_resource type="PackedScene" uid="uid://b85f0qosxm5bq" path="res://Scenes/door.tscn" id="10_t8u7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fulli"]
 texture = ExtResource("7_fxct1")
@@ -95,18 +96,20 @@ texture = ExtResource("7_fxct1")
 [sub_resource type="TileSet" id="TileSet_iteqh"]
 sources/1 = SubResource("TileSetAtlasSource_mcoep")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10t6o"]
+size = Vector2(40, 40)
+
 [node name="OpeningScene" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" parent="." instance=ExtResource("1_nifxk")]
 unique_name_in_owner = true
-script = ExtResource("1_84k5e")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_offset = Vector2(-160, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
 z_index = -3
-position = Vector2(-8, 0)
+position = Vector2(-16, -8)
 scale = Vector2(5, 5)
 texture = ExtResource("2_4syk6")
 
@@ -171,6 +174,7 @@ tile_set = SubResource("TileSet_5p1kq")
 
 [node name="Player" parent="." instance=ExtResource("8_kd5ne")]
 position = Vector2(-8, 0)
+RUN_SPEED = 300.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -4)
@@ -212,3 +216,12 @@ scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("9_gdpjg")
 theme_override_font_sizes/font_size = 32
 text = "Press space mid-air to jump again"
+
+[node name="Door" parent="." instance=ExtResource("10_t8u7g")]
+position = Vector2(2056, -32)
+next_scene_path = "C:/Users/Jacob/Desktop/GODOT/Happy-Birthday-Baron-/first-game/Scenes/cave.tscn"
+
+[node name="CollisionShape2D" parent="Door" index="0"]
+shape = SubResource("RectangleShape2D_10t6o")
+
+[editable path="Door"]

@@ -792,7 +792,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_q0fh1"]
 radius = 7.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_dfolg")
@@ -804,7 +804,7 @@ sprite_frames = SubResource("SpriteFrames_bsbii")
 animation = &"fall"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Player" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_q0fh1")
 
