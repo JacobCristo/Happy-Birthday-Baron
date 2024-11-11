@@ -1,0 +1,68 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c1syn18mxx1w3"]
+
+[ext_resource type="Texture2D" uid="uid://cg2f8dxrgc7hl" path="res://Assets/sprites/HBDB_Environment_Sheet_InProgress-Sheet - Copy (2).png" id="1_wp18x"]
+[ext_resource type="Texture2D" uid="uid://bat0s83rvjg4c" path="res://Assets/sprites/Cave_Sprite_Sheet.png" id="2_bbi8t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvhur"]
+texture = ExtResource("1_wp18x")
+1:7/size_in_atlas = Vector2i(4, 3)
+1:7/0 = 0
+6:9/0 = 0
+7:8/size_in_atlas = Vector2i(1, 2)
+7:8/0 = 0
+8:8/size_in_atlas = Vector2i(1, 2)
+8:8/0 = 0
+3:4/0 = 0
+3:3/0 = 0
+3:2/0 = 0
+3:1/0 = 0
+3:0/0 = 0
+1:0/0 = 0
+2:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/size_in_atlas = Vector2i(2, 2)
+4:1/0 = 0
+6:1/size_in_atlas = Vector2i(2, 2)
+6:1/0 = 0
+2:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_djptw"]
+texture = ExtResource("2_bbi8t")
+5:1/0 = 0
+6:1/0 = 0
+2:2/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+1:4/0 = 0
+1:3/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:1/size_in_atlas = Vector2i(5, 1)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-37, -3.875, 37, -4.375, 36.75, 2.625, -36.5, 2.375)
+3:2/size_in_atlas = Vector2i(2, 1)
+3:2/0 = 0
+3:3/size_in_atlas = Vector2i(2, 1)
+3:3/0 = 0
+5:2/size_in_atlas = Vector2i(2, 1)
+5:2/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lvhur")
+sources/1 = SubResource("TileSetAtlasSource_djptw")
