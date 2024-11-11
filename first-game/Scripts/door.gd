@@ -5,14 +5,12 @@ extends Area2D
 var can_go_through = false
 	
 func _physics_process(_delta: float) -> void:
-	if can_go_through:
+	if can_go_through == true:
 		if Input.is_action_just_pressed("enter_door"):
 			get_tree().change_scene_to_file(next_scene_path)
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		can_go_through = true
+func _on_body_entered(_body: Node2D) -> void:
+	can_go_through = true
 
-func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
-		can_go_through = false
+func _on_body_exited(_body: Node2D) -> void:
+	can_go_through = false
