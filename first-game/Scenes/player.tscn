@@ -801,7 +801,7 @@ script = ExtResource("1_dfolg")
 position = Vector2(0, -22.75)
 scale = Vector2(1, 1.01111)
 sprite_frames = SubResource("SpriteFrames_bsbii")
-animation = &"fall"
+animation = &"run"
 autoplay = "idle"
 
 [node name="Player" type="CollisionShape2D" parent="."]

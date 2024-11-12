@@ -11,7 +11,7 @@
 [ext_resource type="FontFile" uid="uid://oe6obn1e7owm" path="res://Assets/fonts/PixelOperator8.ttf" id="9_gdpjg"]
 [ext_resource type="PackedScene" uid="uid://b85f0qosxm5bq" path="res://Scenes/door.tscn" id="10_t8u7g"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fulli"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxbe3"]
 texture = ExtResource("7_fxct1")
 4:1/size_in_atlas = Vector2i(2, 2)
 4:1/0 = 0
@@ -19,7 +19,7 @@ texture = ExtResource("7_fxct1")
 6:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_rrit6"]
-sources/0 = SubResource("TileSetAtlasSource_fulli")
+sources/0 = SubResource("TileSetAtlasSource_mxbe3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g2626"]
 texture = ExtResource("7_fxct1")
