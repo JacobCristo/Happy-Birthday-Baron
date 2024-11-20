@@ -9,8 +9,9 @@ var has_used_jumps = false
 var current_jumps = 0
 var bat_smoke_done = false
 var fall_smoke_done = false
+var transitioning = false
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 
 func _physics_process(delta: float) -> void:
@@ -43,31 +44,31 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	
 	if direction > 0:
-		animated_sprite_2d.flip_h = false
+		sprite.flip_h = false
 	elif direction < 0:
-		animated_sprite_2d.flip_h = true
+		sprite.flip_h = true
 	
-	if is_on_floor():
+	if is_on_floor() and !transitioning:
 		if direction == 0:
-			animated_sprite_2d.play("idle")
+			sprite.play("idle")
 		elif Input.is_action_pressed("run"):
-			animated_sprite_2d.play("run")
+			sprite.play("run")
 		else:
-			animated_sprite_2d.play("walk")
+			sprite.play("walk")
 	#IF YOU'RE NOT ON THE FLOOR:
-	else:
+	elif !is_on_floor() and !transitioning:
 		#IF START FLYING, PLAY SMOKE
 		if current_jumps == 2 and !bat_smoke_done:
-			animated_sprite_2d.play("bat_smoke")
-			animated_sprite_2d.connect("animation_finished", func(): bat_smoke_done = true)
+			sprite.play("bat_smoke")
+			sprite.connect("animation_finished", func(): bat_smoke_done = true)
 		#ELSE, FLY NORMALLY
 		elif current_jumps >= 2 and current_jumps <= air_jumps:
-			animated_sprite_2d.play("fly")
+			sprite.play("fly")
 		elif current_jumps > air_jumps and !fall_smoke_done:
-			animated_sprite_2d.play("fall_smoke")
-			animated_sprite_2d.connect("animation_finished", func(): fall_smoke_done = true)
+			sprite.play("fall_smoke")
+			sprite.connect("animation_finished", func(): fall_smoke_done = true)
 		else: 
-			animated_sprite_2d.play("fall")
+			sprite.play("fall")
 		
 	if Input.is_action_pressed("run"):
 		if direction:

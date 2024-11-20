@@ -1,8 +1,9 @@
-[gd_scene load_steps=117 format=3 uid="uid://ctfl48arpid3r"]
+[gd_scene load_steps=121 format=3 uid="uid://ctfl48arpid3r"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_dfolg"]
 [ext_resource type="Texture2D" uid="uid://cdmaf8wd3b0ve" path="res://Assets/sprites/Baron_Idle-Sheet.png" id="2_x78sb"]
 [ext_resource type="Texture2D" uid="uid://bqstpjuldrbmd" path="res://Assets/sprites/Baron_Run-Sheet.png" id="3_4icum"]
+[ext_resource type="Texture2D" uid="uid://g8dwxf857qq6" path="res://Assets/sprites/Baron_Door_Transition-Sheet.png" id="3_5vnib"]
 [ext_resource type="Texture2D" uid="uid://ua6q72eao2vi" path="res://Assets/sprites/Baron_JumpSmoke-Sheet.png" id="4_0kg0d"]
 [ext_resource type="Texture2D" uid="uid://nyaai1kykqnp" path="res://Assets/sprites/Batron_Fly-Sheet.png" id="4_sl54d"]
 [ext_resource type="Texture2D" uid="uid://d2vox7rr0podp" path="res://Assets/sprites/Baron_Jump-Sheet.png" id="4_vpdq4"]
@@ -36,6 +37,18 @@ region = Rect2(225, 0, 45, 45)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fw38p"]
 atlas = ExtResource("6_xrqrp")
 region = Rect2(270, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lugpv"]
+atlas = ExtResource("3_5vnib")
+region = Rect2(0, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltbp8"]
+atlas = ExtResource("3_5vnib")
+region = Rect2(45, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl0c7"]
+atlas = ExtResource("3_5vnib")
+region = Rect2(90, 0, 45, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xow0g"]
 atlas = ExtResource("4_vpdq4")
@@ -463,6 +476,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lugpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltbp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl0c7")
+}],
+"loop": false,
+"name": &"door_transition",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xow0g")
 }, {
 "duration": 1.0,
@@ -801,7 +828,7 @@ script = ExtResource("1_dfolg")
 position = Vector2(0, -22.75)
 scale = Vector2(1, 1.01111)
 sprite_frames = SubResource("SpriteFrames_bsbii")
-animation = &"run"
+animation = &"door_transition"
 autoplay = "idle"
 
 [node name="Player" type="CollisionShape2D" parent="."]
