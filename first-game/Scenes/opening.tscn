@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cyjvo26mj5dpa"]
+[gd_scene load_steps=19 format=4 uid="uid://cyjvo26mj5dpa"]
 
 [ext_resource type="PackedScene" uid="uid://b5100cy2no07n" path="res://Scenes/game_manager.tscn" id="1_nifxk"]
 [ext_resource type="Texture2D" uid="uid://dq7ewbd8ns3y" path="res://Assets/sprites/HBDB_STATIC_BG - Copy (2).png" id="2_4syk6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ctfl48arpid3r" path="res://Scenes/player.tscn" id="8_kd5ne"]
 [ext_resource type="FontFile" uid="uid://oe6obn1e7owm" path="res://Assets/fonts/PixelOperator8.ttf" id="9_gdpjg"]
 [ext_resource type="PackedScene" uid="uid://b85f0qosxm5bq" path="res://Scenes/door.tscn" id="10_t8u7g"]
+[ext_resource type="PackedScene" uid="uid://cf8dxr558c1x0" path="res://Scenes/cultists.tscn" id="11_h25tv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxbe3"]
 texture = ExtResource("7_fxct1")
@@ -174,7 +175,6 @@ tile_set = SubResource("TileSet_5p1kq")
 
 [node name="Player" parent="." instance=ExtResource("8_kd5ne")]
 position = Vector2(-8, 0)
-RUN_SPEED = 300.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -4)
@@ -223,5 +223,17 @@ next_scene_path = "C:/Users/Jacob/Desktop/GODOT/Happy-Birthday-Baron-/first-game
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource("RectangleShape2D_10t6o")
+
+[node name="Cutists" parent="." instance=ExtResource("11_h25tv")]
+position = Vector2(220, -38)
+
+[node name="Cutists2" parent="." instance=ExtResource("11_h25tv")]
+position = Vector2(1233, -38.5)
+
+[node name="Cutists3" parent="." instance=ExtResource("11_h25tv")]
+position = Vector2(642, -38.5)
+
+[node name="Cutists4" parent="." instance=ExtResource("11_h25tv")]
+position = Vector2(1731, -38.5)
 
 [editable path="Door"]

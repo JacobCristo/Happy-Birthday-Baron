@@ -825,13 +825,15 @@ collision_layer = 2
 script = ExtResource("1_dfolg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1.2, 1.2, 1.5, 1)
 position = Vector2(0, -22.75)
 scale = Vector2(1, 1.01111)
 sprite_frames = SubResource("SpriteFrames_bsbii")
-animation = &"door_transition"
+animation = &"run"
 autoplay = "idle"
 
 [node name="Player" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_q0fh1")
 

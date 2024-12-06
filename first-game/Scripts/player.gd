@@ -5,11 +5,12 @@ class_name Player
 @export var WALK_SPEED = 45.0
 @export var JUMP_VELOCITY = -400.0
 var air_jumps = 4 
-var has_used_jumps = false
 var current_jumps = 0
+var has_used_jumps = false
 var bat_smoke_done = false
 var fall_smoke_done = false
 var transitioning = false
+var dying = false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
@@ -83,3 +84,14 @@ func _physics_process(delta: float) -> void:
 	
 
 	move_and_slide()
+
+func die():
+	if not dying:
+		velocity.y = -400.0
+		Engine.time_scale = 0.5
+		get_tree().create_timer(0.5).timeout.connect( 
+			func():
+				queue_free()
+				Engine.time_scale = 1
+				get_tree().reload_current_scene()
+				)

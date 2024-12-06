@@ -168,6 +168,7 @@ position = Vector2(-70, 998)
 loop = false
 
 [node name="BaronBar" type="AnimatedSprite2D" parent="BarPath/PathFollow2D"]
+self_modulate = Color(1.2, 1.2, 1.5, 1)
 position = Vector2(20, -40)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_rkbo1")
