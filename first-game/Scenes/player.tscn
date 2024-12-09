@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://ctfl48arpid3r"]
+[gd_scene load_steps=122 format=3 uid="uid://ctfl48arpid3r"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_dfolg"]
 [ext_resource type="Texture2D" uid="uid://cdmaf8wd3b0ve" path="res://Assets/sprites/Baron_Idle-Sheet.png" id="2_x78sb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d2vox7rr0podp" path="res://Assets/sprites/Baron_Jump-Sheet.png" id="4_vpdq4"]
 [ext_resource type="Texture2D" uid="uid://dawc7dywj53g1" path="res://Assets/sprites/Baron_Walk_Final-Sheet.png" id="5_0xjys"]
 [ext_resource type="Texture2D" uid="uid://dilun0e0xb2ed" path="res://Assets/sprites/Batron_Fly_WSmoke-Sheet.png" id="6_xrqrp"]
+[ext_resource type="AudioStream" uid="uid://b7mx5jplhq40g" path="res://Assets/sounds/walking.mp3" id="10_7r6ym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqda6"]
 atlas = ExtResource("6_xrqrp")
@@ -825,7 +826,7 @@ collision_layer = 2
 script = ExtResource("1_dfolg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1.2, 1.2, 1.5, 1)
+self_modulate = Color(1.4, 1.4, 1.7, 1)
 position = Vector2(0, -22.75)
 scale = Vector2(1, 1.01111)
 sprite_frames = SubResource("SpriteFrames_bsbii")
@@ -839,3 +840,6 @@ shape = SubResource("CircleShape2D_q0fh1")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_7r6ym")

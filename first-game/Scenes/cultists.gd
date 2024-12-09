@@ -3,8 +3,8 @@ extends CharacterBody2D
 enum State {PATROL, CHASE}
 var state = State.PATROL
 
-const PATROL_SPEED = 50.0
-const CHASE_SPEED = 80.0
+const PATROL_SPEED = 30.0
+const CHASE_SPEED = 75.0
 const JUMP_VELOCITY = -400.0
 
 var direction = 1 #either 1 or -1
@@ -19,7 +19,11 @@ var chase_pause = true
 @onready var sightbox: Area2D = $Sightbox
 @onready var alert_symbol: Sprite2D = $AlertSymbol
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	
+	# Add the gravity.
+	if !is_on_floor():
+		velocity += get_gravity() * delta
 	
 	if direction < 0:
 		sprite.flip_h = true
@@ -75,7 +79,7 @@ func turn_around():
 func _on_sightbox_body_entered(body: Node2D) -> void:
 	if body == player:
 		alert_symbol.visible = true
-		get_tree().create_timer(0.25).timeout.connect(
+		get_tree().create_timer(0.5).timeout.connect(
 			func():
 				chase_pause = false
 				alert_symbol.visible = false

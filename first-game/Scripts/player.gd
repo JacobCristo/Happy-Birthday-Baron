@@ -12,8 +12,11 @@ var fall_smoke_done = false
 var transitioning = false
 var dying = false
 
+var walk := preload("res://Assets/sounds/walking.mp3")
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
+@onready var audio: AudioStreamPlayer = $Audio
 
 func _physics_process(delta: float) -> void:
 	
@@ -55,9 +58,19 @@ func _physics_process(delta: float) -> void:
 		elif Input.is_action_pressed("run"):
 			sprite.play("run")
 		else:
+			audio.stream = walk
+			audio.play()
 			sprite.play("walk")
+			
 	#IF YOU'RE NOT ON THE FLOOR:
 	elif !is_on_floor() and !transitioning:
+		#if Input.is_action_just_pressed("jump"):
+			#audio.stream = jump
+			#audio.play()
+		
+		#if audio.stream == walk or audio.stream == run:
+			#audio.stop()
+		
 		#IF START FLYING, PLAY SMOKE
 		if current_jumps == 2 and !bat_smoke_done:
 			sprite.play("bat_smoke")
@@ -82,7 +95,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 	
-
 	move_and_slide()
 
 func die():

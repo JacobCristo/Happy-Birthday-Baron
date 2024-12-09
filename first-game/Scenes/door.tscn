@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_ix0sm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wpan"]
+size = Vector2(38, 39)
 
 [node name="Door" type="Area2D"]
 collision_layer = 0
